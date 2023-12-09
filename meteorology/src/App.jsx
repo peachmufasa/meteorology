@@ -1,9 +1,21 @@
 import "./App.css";
+import {LayoutMenu} from "./components/LayoutMenu.jsx";
 
 function App() {
+    const sectionComp = () => {
+        return (
+            <div className={"flex justify-center items-center"}>
+                Section
+            </div>
+        )
+    }
   return (
     <>
-      <div></div>
+      <div className={"h-full"}>
+          <LayoutMenu>
+              {sectionComp()}
+          </LayoutMenu>
+      </div>
     </>
   );
 }
