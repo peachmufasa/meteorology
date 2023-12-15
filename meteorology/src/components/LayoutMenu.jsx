@@ -1,8 +1,8 @@
 import ProfileSymbol from "../assets/images/ProfileSymbol.png";
+import {Link, Outlet} from "react-router-dom";
+import {sections} from "../const/sections.jsx";
 
-export const LayoutMenu = (props) => {
-  const sections = ["Пользователи", "Посты", "Статус работы", "Просмотр логов"];
-
+export const LayoutMenu = () => {
   return (
     <div className={"flex flex-row bg-main-dark text-white h-full"}>
       <div className={"min-w-[18.75%] bg-secondary-dark"}>
@@ -35,33 +35,37 @@ export const LayoutMenu = (props) => {
             </div>
           </div>
           <div className={"flex grow flex-col gap-[2.5rem] pl-[2rem]"}>
-            {sections.map((section, index) => {
-              return (
-                <button key={index.toString()} className={"flex"}>
-                  <span
-                    className={
-                      "text-[1.5rem] leading-[150%] font-roboto font-normal hover:text-perfect-blue"
-                    }
-                  >
-                    {section}
-                  </span>
-                </button>
-              );
-            })}
+              {
+                  Object.keys(sections).map((key, index) => (
+                      <button key={index.toString()} className={"flex"}>
+                          <Link to={`/section/${key}`}>
+                              <span
+                                  className={
+                                      "text-[1.5rem] leading-[150%] font-roboto font-normal hover:text-perfect-blue"
+                                  }
+                              >
+                                {sections[key].ru}
+                              </span>
+                          </Link>
+                      </button>
+                  ))
+              }
           </div>
           <button className={"flex justify-center items-center"}>
-            <span
-              className={
-                "text-[1.25rem] leading-[1.438rem] font-roboto font-light tracking-widest hover:text-perfect-blue"
-              }
-            >
-              Выйти из системы
-            </span>
+            <Link to={"/"}>
+                <span
+                  className={
+                    "text-[1.25rem] leading-[1.438rem] font-roboto font-light tracking-widest hover:text-perfect-blue"
+                  }
+                >
+                  Выйти из системы
+                </span>
+            </Link>
           </button>
         </div>
       </div>
       <div className={"w-[81.25%] bg-secondary-dark m-[5rem]"}>
-        {props.children}
+        <Outlet />
       </div>
     </div>
   );

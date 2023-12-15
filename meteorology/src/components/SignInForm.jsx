@@ -1,6 +1,9 @@
 import Logo from "../assets/images/Logo.svg";
 import ButtonMain from "./reusableComponents/ButtonMain";
 import InputForm from "./reusableComponents/InputForm";
+import {Link} from "react-router-dom";
+import {sections} from "../const/sections.jsx";
+
 
 const SignInForm = () => {
   return (
@@ -11,7 +14,7 @@ const SignInForm = () => {
         <form className="w-full flex flex-col items-center gap-8">
           <InputForm type="text" placeholder="Логин" style="w-[50%]" />
           <InputForm type="password" placeholder="Пароль" style="w-[50%]" />
-          <ButtonMain style="w-[25%]">Войти</ButtonMain>
+          <ButtonMain style="w-[25%]"><Link to={`/section/${Object.keys(sections)[0]}`}>Войти</Link></ButtonMain>
         </form>
       </div>
     </div>
