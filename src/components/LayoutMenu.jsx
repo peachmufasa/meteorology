@@ -6,7 +6,7 @@ const sectionButton = (title, titleRU, index) => {
   return (
     <div key={index.toString()} className={"flex"}>
       <Link to={`/section/${title}`}>
-        <span className="text-[1.5rem] leading-[150%] font-roboto font-normal hover:text-perfect-blue">
+        <span className="text-[1.5rem] leading-[150%] font-roboto font-normal transition-all ease-in-out hover:text-perfect-blue">
           {titleRU}
         </span>
       </Link>
@@ -61,7 +61,7 @@ export const LayoutMenu = () => {
             <Link to={"/"}>
               <span
                 className={
-                  "text-[1.25rem] leading-[1.438rem] font-roboto font-light tracking-widest hover:text-perfect-blue"
+                  "text-[1.25rem] leading-[1.438rem] font-roboto font-light tracking-widest transition-all ease-in-out hover:text-red"
                 }
               >
                 Выйти из системы
@@ -70,7 +70,11 @@ export const LayoutMenu = () => {
           </button>
         </div>
       </div>
-      <div className={"w-[81.25%] bg-secondary-dark m-[5rem] rounded-[32px]"}>
+      <div
+        className={
+          "w-[81.25%] py-10 px-20 bg-secondary-dark m-[5rem] rounded-[32px]"
+        }
+      >
         <Outlet />
       </div>
     </div>
