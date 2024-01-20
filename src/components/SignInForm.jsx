@@ -1,6 +1,6 @@
 import Logo from "../assets/images/Logo.svg";
-import ButtonMain from "./reusableComponents/ButtonMain";
-import InputForm from "./reusableComponents/InputForm";
+import ButtonMain from "./reusableComponents/ButtonMain.jsx";
+import InputForm from "./reusableComponents/InputForm.jsx";
 import {Link} from "react-router-dom";
 import {sections} from "../const/sections.jsx";
 
