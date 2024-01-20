@@ -14,7 +14,13 @@ const SignInForm = () => {
         <form className="w-full flex flex-col items-center gap-8">
           <InputForm type="text" placeholder="Логин" style="w-[50%]" />
           <InputForm type="password" placeholder="Пароль" style="w-[50%]" />
-          <ButtonMain style="w-[25%]"><Link to={`/section/${Object.keys(sections)[0]}`}>Войти</Link></ButtonMain>
+          <Link className='w-full flex justify-center' to={`/section/${Object.keys(sections)[0]}`}>
+            <ButtonMain style="w-[25%]">
+              <span className='text-[1rem]'>
+                Войти
+              </span>
+            </ButtonMain>
+          </Link>
         </form>
       </div>
     </div>
