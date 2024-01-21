@@ -1,4 +1,4 @@
-const users = [{"fullName":"Diana Isherwood","position":"Human Resources Assistant II","role":"Non-binary"},
+export const usersMockup = [{"fullName":"Diana Isherwood","position":"Human Resources Assistant II","role":"Non-binary"},
     {"fullName":"Abrahan Relf","position":"Design Engineer","role":"Male"},
     {"fullName":"Lorne Duck","position":"Financial Analyst","role":"Male"},
     {"fullName":"Benny Kitchingman","position":"Electrical Engineer","role":"Male"},]
@@ -498,7 +498,3 @@ const users = [{"fullName":"Diana Isherwood","position":"Human Resources Assista
     // {"fullName":"Hadleigh Premble","position":"Human Resources Assistant IV","role":"Polygender"},
     // {"fullName":"Noemi Tabart","position":"Librarian","role":"Female"},
     // {"fullName":"Gar Pechacek","position":"Senior Sales Associate","role":"Male"}]
-
-export const getUsers = () => {
-    return users;
-}
