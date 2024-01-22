@@ -59,7 +59,7 @@ const CreateUserSection = () => {
                         labelFor="password"/>
                 </li>
                 <li className="w-[40%]">
-                    <p className="mb-3 px-6 text-2xl">Роль</p>
+                    <p className="mb-3 px-6 text-[1.25rem]">Роль</p>
                     <div className="flex gap-7 justify-center">
                         <div className="flex gap-3">
                             <input
