@@ -1,4 +1,4 @@
-import InputForm from "./InputForm.jsx";
+import InputForm from "../reusableComponents/InputForm.jsx";
 
 const CreateUserInputField = ({labelFor, labelContent ,inputId, inputType, maxLength, name}) => {
     return <div className="flex flex-col gap-3 justify-center">

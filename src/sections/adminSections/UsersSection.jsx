@@ -1,10 +1,10 @@
-import SectionTitle from "../../components/reusableComponents/SectionTitle.jsx";
-import UserItem from "../../components/reusableComponents/UserItem.jsx";
-import InputForm from "../../components/reusableComponents/InputForm.jsx";
-import CreateUserSection from "./CreateUserSection.jsx";
 import {useState} from "react";
 import {usersMockup} from "../../api/userData.jsx";
+import SectionTitle from "../../components/reusableComponents/SectionTitle.jsx";
 import AddButton from "../../components/reusableComponents/AddButton.jsx";
+import CreateUserSection from "../../components/UsersSection/CreateUserSection.jsx";
+import InputForm from "../../components/reusableComponents/InputForm.jsx";
+import UserItem from "../../components/UsersSection/UserItem.jsx";
 
 
 const UsersSection = () => {

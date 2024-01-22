@@ -1,5 +1,5 @@
-import SectionTitle from "../../components/reusableComponents/SectionTitle.jsx";
-import CreateUserInputField from "../../components/reusableComponents/CreateUserInputField.jsx";
+import SectionTitle from "../reusableComponents/SectionTitle.jsx";
+import CreateUserInputField from "./CreateUserInputField.jsx";
 
 const CreateUserSection = () => {
     return <div>
