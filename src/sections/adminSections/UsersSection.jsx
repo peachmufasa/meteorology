@@ -1,10 +1,10 @@
 import SectionTitle from "../../components/reusableComponents/SectionTitle.jsx";
 import UserItem from "../../components/reusableComponents/UserItem.jsx";
 import InputForm from "../../components/reusableComponents/InputForm.jsx";
-import ButtonMain from "../../components/reusableComponents/ButtonMain.jsx";
 import CreateUserSection from "./CreateUserSection.jsx";
 import {useState} from "react";
 import {usersMockup} from "../../api/userData.jsx";
+import AddButton from "../../components/reusableComponents/AddButton.jsx";
 
 
 const UsersSection = () => {
@@ -21,15 +21,17 @@ const UsersSection = () => {
     return (
         <>
             <header className="flex justify-between items-center mb-7">
-                <SectionTitle titleText="Пользователи"/>
+                <SectionTitle>
+                    Пользователи
+                </SectionTitle>
                 <InputForm
                     type="text"
                     placeholder="Поиск"
                     style="w-[35%] border-2 border-gray bg-transparent"
                 />
-                <ButtonMain style="w-[18%]" onClick={handleRegisterUser}>
-                    Создать аккаунт
-                </ButtonMain>
+                <AddButton onClick={handleRegisterUser}>
+                    Cоздать
+                </AddButton>
             </header>
             <ul className="max-h-[36rem] overflow-y-auto">
                 <li>
