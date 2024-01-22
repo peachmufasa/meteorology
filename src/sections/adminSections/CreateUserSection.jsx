@@ -4,34 +4,25 @@ import CreateUserInputField from "../../components/reusableComponents/CreateUser
 const CreateUserSection = () => {
     return <div>
         <header className="mb-12">
-            <SectionTitle titleText="Создать профиль"/>
+            <SectionTitle style="text-center">
+                Создать пользователя
+            </ SectionTitle>
         </header>
 
         <form>
             <ul className="flex flex-wrap justify-evenly gap-4 mb-20">
                 <li className="w-[40%]">
                     <CreateUserInputField
+                        name="first_name"
                         inputId="name"
                         inputType="text"
                         labelContent="Имя"
-                        labelFor="name"/>
+                        labelFor="name"
+                    />
                 </li>
                 <li className="w-[40%]">
                     <CreateUserInputField
-                        inputId="lastName"
-                        inputType="text"
-                        labelContent="Фамилия"
-                        labelFor="lastName"/>
-                </li>
-                <li className="w-[40%]">
-                    <CreateUserInputField
-                        inputId="middleName"
-                        inputType="text"
-                        labelContent="Отчество"
-                        labelFor="middleName"/>
-                </li>
-                <li className="w-[40%]">
-                    <CreateUserInputField
+                        name="phone"
                         inputId="phoneNumber"
                         inputType="tel"
                         labelContent="Телефон"
@@ -39,6 +30,15 @@ const CreateUserSection = () => {
                 </li>
                 <li className="w-[40%]">
                     <CreateUserInputField
+                        name="last_name"
+                        inputId="lastName"
+                        inputType="text"
+                        labelContent="Фамилия"
+                        labelFor="lastName"/>
+                </li>
+                <li className="w-[40%]">
+                    <CreateUserInputField
+                        name="post_code"
                         inputId="postNumber"
                         inputType="text"
                         labelContent="Код поста"
@@ -46,20 +46,22 @@ const CreateUserSection = () => {
                 </li>
                 <li className="w-[40%]">
                     <CreateUserInputField
+                        name="middle_name"
+                        inputId="middleName"
+                        inputType="text"
+                        labelContent="Отчество"
+                        labelFor="middleName"/>
+                </li>
+                <li className="w-[40%]">
+                    <CreateUserInputField
+                        name="login"
                         inputId="login"
                         inputType="text"
                         labelContent="Логин"
                         labelFor="login"/>
                 </li>
                 <li className="w-[40%]">
-                    <CreateUserInputField
-                        inputId="password"
-                        inputType="password"
-                        labelContent="Пароль"
-                        labelFor="password"/>
-                </li>
-                <li className="w-[40%]">
-                    <p className="mb-3 px-6 text-[1.25rem]">Роль</p>
+                    <p className="mb-7 px-6 text-[1.25rem]">Роль</p>
                     <div className="flex gap-7 justify-center">
                         <div className="flex gap-3">
                             <input
@@ -88,6 +90,14 @@ const CreateUserSection = () => {
                             <label className="text-2xl" htmlFor="contactChoice3">Гидролог</label>
                         </div>
                     </div>
+                </li>
+                <li className="w-[40%]">
+                    <CreateUserInputField
+                        name="password"
+                        inputId="password"
+                        inputType="password"
+                        labelContent="Пароль"
+                        labelFor="password"/>
                 </li>
             </ul>
             <div className="flex justify-center gap-28">
