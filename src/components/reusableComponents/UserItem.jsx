@@ -1,6 +1,6 @@
 const UserItem = ({ user, onEditUser, onDeleteUser }) => {
   return (
-    <div className="px-16 py-3 mb-4 flex justify-between items-center  border-t-[1px] border-gray/30">
+    <div className="px-16 py-4 flex justify-between items-center  border-t-[1px] border-gray/30">
       <div className="flex flex-col gap-2">
         <p className="text-xl font-medium tracking-wide">{user.fullName}</p>
         <span className=" text-gray text-lg font-normal">{user.position}</span>

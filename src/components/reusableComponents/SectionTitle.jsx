@@ -1,8 +1,8 @@
-import InputForm from "./InputForm";
 
-const SectionTitle = ({ titleText }) => {
+const SectionTitle = ({ children, style }) => {
   return (
-      <h2 className="text-4xl font-semibold tracking-widest">{titleText}</h2>
+      <h2 className={`${style} text-4xl font-semibold tracking-widest 
+      `}>{children}</h2>
   );
 };
 
