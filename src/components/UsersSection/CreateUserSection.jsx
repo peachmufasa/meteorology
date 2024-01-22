@@ -26,7 +26,7 @@ const CreateUserSection = () => {
                         inputId="phoneNumber"
                         inputType="tel"
                         labelContent="Телефон"
-                        labelFor="phoneNumber" maxLength={10}/>
+                        labelFor="phoneNumber"/>
                 </li>
                 <li className="w-[40%]">
                     <CreateUserInputField
