@@ -72,7 +72,7 @@ export const LayoutMenu = () => {
       </div>
       <div
         className={
-          "w-[81.25%] py-10 px-20 bg-secondary-dark m-[5rem] rounded-[32px]"
+          "w-[81.25%] bg-secondary-dark m-[5rem] rounded-[32px]"
         }
       >
         <Outlet />
