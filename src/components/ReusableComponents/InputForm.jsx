@@ -1,6 +1,7 @@
-const InputForm = ({ maxLength, id, type, placeholder, style, name }) => {
+const InputForm = ({ maxLength, id, type, placeholder, style, name, value }) => {
   return (
     <input
+        value={value}
         name={name}
         maxLength={maxLength}
         id={id}
