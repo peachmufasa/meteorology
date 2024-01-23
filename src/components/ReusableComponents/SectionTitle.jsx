@@ -1,7 +1,7 @@
 
 const SectionTitle = ({ children, style }) => {
   return (
-      <h2 className={`${style} text-4xl font-semibold tracking-widest 
+      <h2 className={`${style} min-w-[25%] text-4xl font-semibold tracking-widest 
       `}>{children}</h2>
   );
 };

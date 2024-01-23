@@ -17,7 +17,7 @@ const UsersSection = () => {
     }
     return (
         <div className="px-20 py-10">
-            <header className="flex justify-between items-center mb-7 w-full">
+            <header className="flex justify-between items-center mb-6 w-full">
                 <SectionTitle>
                     Пользователи
                 </SectionTitle>
