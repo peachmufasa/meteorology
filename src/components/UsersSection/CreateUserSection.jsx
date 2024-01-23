@@ -1,8 +1,8 @@
-import SectionTitle from "../reusableComponents/SectionTitle.jsx";
-import CreateUserInputField from "./CreateUserInputField.jsx";
+import SectionTitle from "../ReusableComponents/SectionTitle.jsx";
+import CreateItemInputField from "./CreateItemInputField.jsx";
 
 const CreateUserSection = () => {
-    return <div>
+    return <div className="px-20 py-10">
         <header className="mb-12">
             <SectionTitle style="text-center">
                 Создать пользователя
@@ -12,7 +12,7 @@ const CreateUserSection = () => {
         <form>
             <ul className="flex flex-wrap justify-evenly gap-4 mb-20">
                 <li className="w-[40%]">
-                    <CreateUserInputField
+                    <CreateItemInputField
                         name="first_name"
                         inputId="name"
                         inputType="text"
@@ -21,7 +21,7 @@ const CreateUserSection = () => {
                     />
                 </li>
                 <li className="w-[40%]">
-                    <CreateUserInputField
+                    <CreateItemInputField
                         name="phone"
                         inputId="phoneNumber"
                         inputType="tel"
@@ -29,7 +29,7 @@ const CreateUserSection = () => {
                         labelFor="phoneNumber"/>
                 </li>
                 <li className="w-[40%]">
-                    <CreateUserInputField
+                    <CreateItemInputField
                         name="last_name"
                         inputId="lastName"
                         inputType="text"
@@ -37,7 +37,7 @@ const CreateUserSection = () => {
                         labelFor="lastName"/>
                 </li>
                 <li className="w-[40%]">
-                    <CreateUserInputField
+                    <CreateItemInputField
                         name="post_code"
                         inputId="postNumber"
                         inputType="text"
@@ -45,7 +45,7 @@ const CreateUserSection = () => {
                         labelFor="postNumber"/>
                 </li>
                 <li className="w-[40%]">
-                    <CreateUserInputField
+                    <CreateItemInputField
                         name="middle_name"
                         inputId="middleName"
                         inputType="text"
@@ -53,7 +53,7 @@ const CreateUserSection = () => {
                         labelFor="middleName"/>
                 </li>
                 <li className="w-[40%]">
-                    <CreateUserInputField
+                    <CreateItemInputField
                         name="login"
                         inputId="login"
                         inputType="text"
@@ -92,7 +92,7 @@ const CreateUserSection = () => {
                     </div>
                 </li>
                 <li className="w-[40%]">
-                    <CreateUserInputField
+                    <CreateItemInputField
                         name="password"
                         inputId="password"
                         inputType="password"
