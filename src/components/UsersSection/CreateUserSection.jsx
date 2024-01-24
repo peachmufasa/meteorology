@@ -2,7 +2,7 @@ import SectionTitle from "../ReusableComponents/SectionTitle.jsx";
 import CreateItemInputField from "./CreateItemInputField.jsx";
 
 const CreateUserSection = () => {
-    return <div className="px-20 py-10">
+    return <div className="px-20 py-14">
         <header className="mb-12">
             <SectionTitle style="text-center">
                 Создать пользователя
@@ -10,7 +10,7 @@ const CreateUserSection = () => {
         </header>
 
         <form>
-            <ul className="flex flex-wrap justify-evenly gap-4 mb-20">
+            <ul className="flex flex-wrap justify-evenly gap-4 mb-24 mt-20">
                 <li className="w-[40%]">
                     <CreateItemInputField
                         name="first_name"
