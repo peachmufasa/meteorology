@@ -5,6 +5,7 @@ import CreateUserSection from "../../components/UsersSection/CreateUserSection.j
 import InputForm from "../../components/ReusableComponents/InputForm.jsx";
 import UsersList from "../../components/UsersSection/UsersList.jsx";
 import EditUserSection from "../../components/UsersSection/EditUserSection.jsx";
+import DropdownMenu from "../../components/ReusableComponents/DropdownMenu.jsx";
 
 
 const UsersSection = () => {
@@ -20,11 +21,11 @@ const UsersSection = () => {
         setSelectedUser(user)
     }
 
+
     if (isRegisterUserOn) {
         return <CreateUserSection/>
-    }
-    else if(isEditUserOn) {
-        return <EditUserSection selectedUser={selectedUser} />
+    } else if (isEditUserOn) {
+        return <EditUserSection selectedUser={selectedUser}/>
     }
     return (
         <div className="px-20 py-10">
@@ -32,16 +33,20 @@ const UsersSection = () => {
                 <SectionTitle>
                     Пользователи
                 </SectionTitle>
-                <InputForm
-                    type="text"
-                    placeholder="Поиск"
-                    style="w-[35%] border-2 border-gray bg-transparent"
-                />
+                <div className="w-[40%] flex gap-4 items-center">
+                    <InputForm
+                        type="text"
+                        placeholder="Поиск"
+                        style="w-[90%] border-2 border-gray bg-transparent"
+                    />
+                    <DropdownMenu option1={"Все"} option2={"Имя"} option3={"Пост"} option4={"Роль"}
+                    />
+                </div>
                 <AddButton onClick={handleRegisterUser}>
                     Cоздать
                 </AddButton>
             </header>
-            <UsersList onUserEdit={handleEditUser} />
+            <UsersList onUserEdit={handleEditUser}/>
         </div>
     )
 }

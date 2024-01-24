@@ -1,9 +1,10 @@
 
 
+
 const ServiceStatusSection = () => {
     return (
         <div className="">
-            ServiceStatusSection
+            Статус сервисов
         </div>
     );
 };
