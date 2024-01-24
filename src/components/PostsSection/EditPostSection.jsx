@@ -17,7 +17,7 @@ const EditPostSection = ({selectedPost, onReturn}) => {
                         </svg>
                     </button>
                     <SectionTitle>
-                        Редактирование поста
+                        Редактировать пост
                     </SectionTitle>
                 </div>
                 <div
@@ -50,7 +50,7 @@ const EditPostSection = ({selectedPost, onReturn}) => {
                     </form>
                     <div className="flex justify-center gap-10">
                         <button className="py-5 px-10 text-2xl text-red transition-all ease-in-out hover:text-red/50">
-                            Отменить
+                            Удалить
                         </button>
                         <button type="submit"
                                 className="py-5 px-10 text-2xl text-perfect-blue bg-dark-gray/50 rounded-full transition-all ease-in-out hover:bg-dark-gray active:bg-gray/30">
