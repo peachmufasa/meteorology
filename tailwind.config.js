@@ -14,6 +14,7 @@ export default {
       "perfect-blue-active": "#082f49",
       gray: "#A3A3A3",
       "dark-gray": "#2F2F2F",
+      red: "#DA2727",
       transparent: "transparent",
     },
     extend: {},

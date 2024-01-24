@@ -1,9 +1,9 @@
 import "./App.css";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import React from "react";
-import SignInForm from "./components/SignInForm.jsx";
-import ErrorPage from "./components/ErrorPage.jsx";
-import {LayoutMenu} from "./components/LayoutMenu.jsx";
+import SignInForm from "./sections/SignInForm.jsx";
+import ErrorPage from "./sections/ErrorPage.jsx";
+import {LayoutMenu} from "./layout/LayoutMenu.jsx";
 
 import {sections} from "./const/sections.jsx";
 import {adminSections} from "./const/sections.jsx";
