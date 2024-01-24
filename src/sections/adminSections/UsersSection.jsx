@@ -4,16 +4,27 @@ import AddButton from "../../components/ReusableComponents/AddButton.jsx";
 import CreateUserSection from "../../components/UsersSection/CreateUserSection.jsx";
 import InputForm from "../../components/ReusableComponents/InputForm.jsx";
 import UsersList from "../../components/UsersSection/UsersList.jsx";
+import EditUserSection from "../../components/UsersSection/EditUserSection.jsx";
 
 
 const UsersSection = () => {
     const [isRegisterUserOn, setIsRegisterUserOn] = useState(false);
+    const [isEditUserOn, setIsEditUserOn] = useState(false)
+    const [selectedUser, setSelectedUser] = useState(null)
     const handleRegisterUser = () => {
-        setIsRegisterUserOn(!isRegisterUserOn);
+        setIsRegisterUserOn(true);
+    }
+
+    const handleEditUser = (user) => {
+        setIsEditUserOn(true)
+        setSelectedUser(user)
     }
 
     if (isRegisterUserOn) {
         return <CreateUserSection/>
+    }
+    else if(isEditUserOn) {
+        return <EditUserSection selectedUser={selectedUser} />
     }
     return (
         <div className="px-20 py-10">
@@ -30,7 +41,7 @@ const UsersSection = () => {
                     Cоздать
                 </AddButton>
             </header>
-            <UsersList />
+            <UsersList onUserEdit={handleEditUser} />
         </div>
     )
 }
