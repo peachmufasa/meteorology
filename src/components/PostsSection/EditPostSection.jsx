@@ -1,8 +1,32 @@
 import SectionTitle from "../ReusableComponents/SectionTitle.jsx";
 import CreateItemInputField from "../UsersSection/CreateItemInputField.jsx";
+import {useState} from "react";
+import postStore from "../../store/postStore.js";
 
 
 const EditPostSection = ({selectedPost, onReturn}) => {
+    const updatePost = postStore(state => state.updatePost)
+    const deletePost = postStore(state => state.deletePost)
+
+    const [code, setCode] = useState(selectedPost.code)
+    const [name, setName] = useState(selectedPost.name)
+    const [river, setRiver] = useState(selectedPost.river)
+    const [warningMessage, setWarningMessage] = useState(null)
+
+    const handleDelete = () => {
+        deletePost(selectedPost.id).then(() => setWarningMessage(null)).catch(() => setWarningMessage('Warning'))
+
+    }
+
+    const handleSave = () => {
+        const post = {
+            code,
+            id: selectedPost.id,
+            name,
+            river
+        }
+        updatePost(post).then(() => setWarningMessage(null)).catch(() => setWarningMessage('Warning'))
+    }
 
 
     return (
@@ -27,32 +51,37 @@ const EditPostSection = ({selectedPost, onReturn}) => {
                     </h3>
                     <form className="w-2/3 flex flex-col gap-6">
                         <CreateItemInputField
-                            value={selectedPost.code}
+                            value={code}
+                            onChange={(e) => setCode(e.target.value)}
                             name="code"
                             inputId="postCode"
                             inputType="text"
                             labelContent="Код поста"
                             labelFor="postCode"/>
                         <CreateItemInputField
-                            value={selectedPost.name}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             name="name"
                             inputId="cityName"
                             inputType="text"
                             labelContent="Название"
                             labelFor="cityName"/>
                         <CreateItemInputField
-                            value={selectedPost.river}
+                            value={river}
+                            onChange={(e) => setRiver(e.target.value)}
                             name="river"
                             inputId="postRiver"
                             inputType="text"
                             labelContent="Река"
                             labelFor="postRiver"/>
                     </form>
+                    <span className='text-red'>{warningMessage != null ? warningMessage : ''}</span>
                     <div className="flex justify-center gap-10">
-                        <button className="py-5 px-10 text-2xl text-red transition-all ease-in-out hover:text-red/50">
+                        <button onClick={handleDelete} className="py-5 px-10 text-2xl text-red transition-all ease-in-out hover:text-red/50">
                             Удалить
                         </button>
-                        <button type="submit"
+                        <button onClick={handleSave}
+                                type="submit"
                                 className="py-5 px-10 text-2xl text-perfect-blue bg-dark-gray/50 rounded-full transition-all ease-in-out hover:bg-dark-gray active:bg-gray/30">
                             Сохранить
                         </button>

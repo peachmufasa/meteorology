@@ -1,7 +1,26 @@
 import SectionTitle from "../ReusableComponents/SectionTitle.jsx";
 import CreateItemInputField from "../UsersSection/CreateItemInputField.jsx";
+import {useState} from "react";
+import postStore from "../../store/postStore.js";
 
 const MyComponent = ({ onReturn}) => {
+    const addPost = postStore(state => state.addPost)
+
+    const [code, setCode] = useState('')
+    const [name, setName] = useState('')
+    const [river, setRiver] = useState('')
+    const [warningMessage, setWarningMessage] = useState(null)
+
+    const handleSumbit = () => {
+        const post = {
+            code,
+            id: "",
+            name,
+            river
+        }
+        addPost(post).then(() => setWarningMessage(null)).catch(() => setWarningMessage('Warning'))
+    }
+
     return (
         <div className="flex flex-col w-1/2 gap-8">
             <div className="h-[10%] px-4 py-3 flex items-center gap-5 rounded-3xl bg-secondary-dark">
@@ -25,22 +44,30 @@ const MyComponent = ({ onReturn}) => {
                         inputId="postCode"
                         inputType="text"
                         labelContent="Код поста"
-                        labelFor="postCode"/>
+                        labelFor="postCode"
+                        value={code}
+                        onChange={(e) => setCode(e.target.value)}/>
                     <CreateItemInputField
                         name="name"
                         inputId="cityName"
                         inputType="text"
                         labelContent="Название"
-                        labelFor="cityName"/>
+                        labelFor="cityName"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}/>
                     <CreateItemInputField
                         name="river"
                         inputId="postRiver"
                         inputType="text"
                         labelContent="Река"
-                        labelFor="postRiver"/>
+                        labelFor="postRiver"
+                        value={river}
+                        onChange={(e) => setRiver(e.target.value)}/>
                 </form>
+                <span className='text-red'>{warningMessage != null ? warningMessage : ''}</span>
                 <div className="flex justify-center gap-10">
                     <button type="submit"
+                            onClick={handleSumbit}
                             className="py-5 px-10 text-2xl text-perfect-blue bg-dark-gray/50 rounded-full transition-all ease-in-out hover:bg-dark-gray active:bg-gray/30">
                         Сохранить
                     </button>

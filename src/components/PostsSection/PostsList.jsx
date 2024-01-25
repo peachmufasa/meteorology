@@ -3,9 +3,7 @@ import {useState} from "react";
 import {postsMockup} from "../../api/postData.jsx";
 import PostItem from "./PostItem.jsx";
 
-const PostsList = ({onSelected}) => {
-    const posts = postsMockup;
-
+const PostsList = ({onSelected, posts}) => {
     const [page, setPage] = useState(1);
 
     const handlePaginationChange = (event, newPage) => {

@@ -5,8 +5,8 @@ const PostItem = ({post, onSelected}) => {
         cursor-pointer transition-all ease-in-out hover:bg-dark-gray/50 active:bg-dark-gray">
             <div className="flex flex-col gap-2">
                 <p className="text-xl font-medium tracking-wide">{`Пост ${post.code}`}</p>
-                <span className=" text-gray text-lg font-normal">{post.name}</span>
-                <span className="text-gray text-lg font-normal">{post.river}</span>
+                <span className=" text-gray text-lg font-normal">{!post.name ? '----' : post.name}</span>
+                <span className="text-gray text-lg font-normal">{!post.river ? '----' : post.river}</span>
             </div>
         </div>
     );

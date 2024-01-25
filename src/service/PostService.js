@@ -12,7 +12,7 @@ export default class PostService {
     }
 
     static async findPosts(searchString) {
-        return $api.get(`/api/find-posts?substring=${searchString}`)
+        return $api.get(`/api/find-posts?substring=${searchString ?? ''}`)
             .then(response => response.data)
     }
 
@@ -22,7 +22,7 @@ export default class PostService {
     }
 
     static async getPost(id){
-        return $api.get(`/api/get-post?id=${id}`)
+        return $api.get(`/api/get-post?id=${id ?? ''}`)
             .then(response => response.data)
     }
 

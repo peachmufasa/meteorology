@@ -1,4 +1,4 @@
-const InputForm = ({ maxLength, id, type, placeholder, style, name, value }) => {
+const InputForm = ({ maxLength, id, type, placeholder, style, name, value, onChange }) => {
   return (
     <input
         value={value}
@@ -7,7 +7,8 @@ const InputForm = ({ maxLength, id, type, placeholder, style, name, value }) => 
         id={id}
         type={type}
         placeholder={placeholder}
-        className={`${style} px-6 py-3 outline-none rounded-full text-white text-xl placeholder:text-white transition-all ease-in-out min-h-[4.125rem] 
+        onChange={onChange}
+        className={`${style} px-6 py-3 outline-none rounded-full text-white text-xl placeholder:text-grey transition-all ease-in-out min-h-[4.125rem] 
       `}
     />
   );

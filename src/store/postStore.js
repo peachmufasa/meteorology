@@ -18,9 +18,9 @@ const postStore = create(() => ({
         }
     },
 
-    findPosts: async (id) => {
+    findPosts: async (substring) => {
         try {
-            return await PostService.findPosts(id).then(resp => resp.posts)
+            return await PostService.findPosts(substring).then(resp => resp.posts)
         } catch (e) {
             console.log(e.response?.data?.message)
         }
