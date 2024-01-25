@@ -1,11 +1,12 @@
 import SectionTitle from "../ReusableComponents/SectionTitle.jsx";
 import CreateItemInputField from "./CreateItemInputField.jsx";
 
-const CreateUserSection = () => {
+
+const EditUserSection = ({selectedUser}) => {
     return <div className="px-20 py-14">
         <header className="mb-12">
             <SectionTitle style="text-center">
-                Создать пользователя
+                Редактировать пользователя
             </ SectionTitle>
         </header>
 
@@ -13,6 +14,7 @@ const CreateUserSection = () => {
             <ul className="flex flex-wrap justify-evenly gap-4 mb-24 mt-20">
                 <li className="w-[40%]">
                     <CreateItemInputField
+                        value={selectedUser.first_name}
                         name="first_name"
                         inputId="name"
                         inputType="text"
@@ -22,6 +24,7 @@ const CreateUserSection = () => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
+                        value={selectedUser.phone}
                         name="phone"
                         inputId="phoneNumber"
                         inputType="tel"
@@ -30,6 +33,7 @@ const CreateUserSection = () => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
+                        value={selectedUser.last_name}
                         name="last_name"
                         inputId="lastName"
                         inputType="text"
@@ -38,6 +42,7 @@ const CreateUserSection = () => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
+                        value={selectedUser.post_code}
                         name="post_code"
                         inputId="postNumber"
                         inputType="text"
@@ -46,6 +51,7 @@ const CreateUserSection = () => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
+                        value={selectedUser.middle_name}
                         name="middle_name"
                         inputId="middleName"
                         inputType="text"
@@ -54,19 +60,23 @@ const CreateUserSection = () => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
+                        value={selectedUser.login}
                         name="login"
                         inputId="login"
                         inputType="text"
                         labelContent="Логин"
                         labelFor="login"/>
                 </li>
+                {/*Что-то нужно сделать с отображением роли*/}
                 <li className="w-[40%]">
                     <p className="mb-7 px-6 text-[1.25rem]">Роль</p>
                     <div className="flex gap-7 justify-center">
                         <div className="flex gap-3">
                             <input
                                 className="w-6"
-                                type="radio" id="roleChoice1"
+                                type="radio"
+                                checked={selectedUser.role === "role"}
+                                id="roleChoice1"
                                 name="role"
                                 value="admin"/>
                             <label className="text-2xl" htmlFor="contactChoice1">Админ</label>
@@ -75,6 +85,7 @@ const CreateUserSection = () => {
                             <input
                                 className="w-6"
                                 type="radio"
+                                checked={selectedUser.role === "sender"}
                                 id="roleChoice2"
                                 name="role"
                                 value="sender"/>
@@ -84,6 +95,7 @@ const CreateUserSection = () => {
                             <input
                                 className="w-6"
                                 type="radio"
+                                checked={selectedUser.role === "hydrologist"}
                                 id="roleChoice3"
                                 name="role"
                                 value="hydrologist"/>
@@ -93,6 +105,7 @@ const CreateUserSection = () => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
+                        value={selectedUser.password}
                         name="password"
                         inputId="password"
                         inputType="password"
@@ -109,7 +122,7 @@ const CreateUserSection = () => {
                 </button>
             </div>
         </form>
-    </div>
-}
+    </div>;
+};
 
-export default CreateUserSection;
+export default EditUserSection;

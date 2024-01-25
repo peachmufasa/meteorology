@@ -4,45 +4,55 @@ import AddButton from "../../components/ReusableComponents/AddButton.jsx";
 import PostsList from "../../components/PostsSection/PostsList.jsx";
 import {useState} from "react";
 import EditPostSection from "../../components/PostsSection/EditPostSection.jsx";
-
-const sectionInitialStyle = "px-20 py-10"
-const sectionUpdatedStyle = "px-20 py-10 bg-main-dark"
+import AddPostSection from "../../components/PostsSection/AddPostSection.jsx";
 
 const PostsSection = () => {
     const [selectedPost, setSelectedPost] = useState(null)
+    const [isCreatePostSectionOn, setIsCreatePostSectionOn] = useState(false)
 
 
     const handleSelection = (post) => {
         setSelectedPost(post)
+        setIsCreatePostSectionOn(false)
     }
 
     const setSelectedNull = () => {
         setSelectedPost(null)
     }
 
+    const handleCreatePost = () => {
+        setIsCreatePostSectionOn(true)
+        setSelectedPost(null)
+    }
+
+    const handleCloseCreatePost = () => {
+        setIsCreatePostSectionOn(false)
+    }
+
 
     return (
-        <div className={selectedPost === null ? "" : "bg-main-dark flex gap-8 h-full"}>
+        <div className={isCreatePostSectionOn === false && selectedPost === null ? "" : "bg-main-dark flex gap-8 h-full"}>
             {selectedPost && <EditPostSection selectedPost={selectedPost} onReturn={setSelectedNull}/>}
-            <div className={selectedPost != null ? "w-1/2 bg-secondary-dark rounded-3xl px-10 py-4" : "px-20 py-10"}>
-                <header className={selectedPost === null ? "flex justify-between items-center mb-6 w-full" : "flex justify-between items-center mb-3 w-full"}>
+            {isCreatePostSectionOn && <AddPostSection onReturn={handleCloseCreatePost} />}
+            <div className={selectedPost != null || isCreatePostSectionOn === true  ? "w-1/2 bg-secondary-dark rounded-3xl px-10 py-4" : "px-20 py-10"}>
+                <header className={selectedPost === null || isCreatePostSectionOn === false ? "flex justify-between items-center mb-6 w-full" : "flex justify-between items-center mb-3 w-full"}>
                     <SectionTitle>
                         Список постов
                     </SectionTitle>
-                    {selectedPost === null ? <InputForm
+                    {selectedPost === null && isCreatePostSectionOn === false  ? <InputForm
                         type="text"
                         placeholder="Поиск"
                         style="w-[35%] border-2 border-gray bg-transparent"
                     /> : ""}
-                    <AddButton>
+                    <AddButton disabled={isCreatePostSectionOn && true} onClick={handleCreatePost}>
                         Cоздать
                     </AddButton>
                 </header>
-                {selectedPost && <InputForm
+                {selectedPost != null || isCreatePostSectionOn === true ? <InputForm
                     type="text"
                     placeholder="Поиск"
                     style="w-[100%] mb-5 border-2 border-gray bg-transparent"
-                />}
+                /> : ""}
                 <PostsList onSelected={handleSelection}/>
             </div>
         </div>)

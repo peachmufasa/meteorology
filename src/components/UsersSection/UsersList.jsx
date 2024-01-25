@@ -3,7 +3,7 @@ import CustomPagination from "../ReusableComponents/CustomPagination.jsx";
 import {usersMockup} from "../../api/userData.jsx";
 import {useState} from "react";
 
-const UsersList = () => {
+const UsersList = ({onUserEdit}) => {
     const users = usersMockup;
 
     const [page, setPage] = useState(1);
@@ -19,7 +19,7 @@ const UsersList = () => {
 
     return <div className="flex flex-col items-center">
         <ul className="max-h-[42rem] w-full overflow-y-auto mb-4">
-                {currentUsers.map(user => <li key={user.id}><UserItem user={user}/></li>)}
+                {currentUsers.map(user => <li key={user.id}><UserItem onEditUser={onUserEdit}  user={user}/></li>)}
         </ul>
         <CustomPagination
             pageCount={Math.ceil(users.length / itemsPerPage)}
