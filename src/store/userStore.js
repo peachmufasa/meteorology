@@ -1,17 +1,8 @@
 import { create } from "zustand";
 import AuthService from "../service/AuthService.js";
 
-const useStore = create((set) => ({
+const userStore = create((set) => ({
     user: {},
-
-    setUser: (user) =>
-        set(() => ({
-            user: {user}
-        })),
-    clearUser: () =>
-        set(() => ({
-            user: {}
-        })),
 
     isAuth: false,
 
@@ -28,6 +19,19 @@ const useStore = create((set) => ({
                 user: response?.data?.user,
                 isAuth: true,
             })
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    },
+
+    loginTEST: async (string) => {
+        try {
+            const response = await AuthService.loginTEST(string)
+            // localStorage.setItem('token', response?.data?.accessToken) // *accessToken* - name of attr access token in bd
+            // set({
+            //     user: response?.data?.telegrams,
+            //     isAuth: true,
+            // })
         } catch (e) {
             console.log(e.response?.data?.message)
         }
@@ -60,4 +64,4 @@ const useStore = create((set) => ({
     }
 
 }));
-export default useStore;
+export default userStore;

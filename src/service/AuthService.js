@@ -6,6 +6,11 @@ export default class AuthService {
             .then(response => response.data)
     }
 
+    static async loginTEST(data) {
+        return $api.post('/api/add-telegram', data)
+            .then(response => response.data)
+    }
+
     static async registration(login, password) {
         return $api.post('/*registrationAddressApi*', {login, password})
     }

@@ -2,22 +2,16 @@ import Logo from "../assets/images/Logo.svg";
 import {useNavigate} from "react-router-dom";
 import {sections} from "../const/sections.jsx";
 import {useState} from "react";
-import useStore from "../store/store.js";
+import userStore from "../store/userStore.js";
+import postStore from "../store/postStore.js";
 
 
 const SignInForm = () => {
 
-  const logIn = useStore((state) => state.login)
-  const isAuth = useStore(state => state.isAuth)
-  const setAuth = useStore(state => state.setAuth)
-  setAuth(true)
+  const isAuth = userStore(state => state.isAuth)
+  const setAuth = userStore(state => state.setAuth)
   const navigate = useNavigate()
-
-
-  // const logInAccount = (login, password) => {
-  //   // const response = logIn(login, password)
-  //
-  // }
+  setAuth(true)
 
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
@@ -36,7 +30,6 @@ const SignInForm = () => {
                             hover:border-perfect-blue focus:border-perfect-blue focus:shadow-perfect-blue -[#15A1CF] focus:shadow-[0px_0px_8px_perfect-blue]' />
         </form>
         <button onClick={() => {
-            // logInAccount(login, password)
             if (isAuth) {
               navigate(`/section/${Object.keys(sections)[0]}`)
             }
