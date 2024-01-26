@@ -100,15 +100,15 @@ const CreateUserSection = () => {
                         labelFor="password"/>
                 </li>
             </ul>
-            <div className="flex justify-center gap-28">
-                <button className="cancel-btn text-2xl">
-                    Отменить
-                </button>
-                <button type="submit" className="btn py-5 px-10 text-2xl">
-                    Подтвердить
-                </button>
-            </div>
         </form>
+        <div className="flex justify-center gap-28">
+            <button className="cancel-btn text-2xl">
+                Отменить
+            </button>
+            <button type="submit" className="btn py-5 px-10 text-2xl">
+                Подтвердить
+            </button>
+        </div>
     </div>
 }
 
