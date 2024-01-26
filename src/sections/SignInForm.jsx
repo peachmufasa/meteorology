@@ -2,13 +2,13 @@ import Logo from "../assets/images/Logo.svg";
 import {useNavigate} from "react-router-dom";
 import {sections} from "../const/sections.jsx";
 import {useState} from "react";
-import userStore from "../store/userStore.js";
+import authStore from "../store/authStore.js";
 
 
 const SignInForm = () => {
 
-  const isAuth = userStore(state => state.isAuth)
-  const setAuth = userStore(state => state.setAuth)
+  const isAuth = authStore(state => state.isAuth)
+  const setAuth = authStore(state => state.setAuth)
   const navigate = useNavigate()
   setAuth(true)
 

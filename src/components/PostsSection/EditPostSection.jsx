@@ -15,7 +15,6 @@ const EditPostSection = ({selectedPost, onReturn}) => {
 
     const handleDelete = () => {
         deletePost(selectedPost.id).then(() => setWarningMessage(null)).catch(() => setWarningMessage('Warning'))
-
     }
 
     const handleSave = () => {

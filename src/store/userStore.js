@@ -1,67 +1,45 @@
-import { create } from "zustand";
-import AuthService from "../service/AuthService.js";
+import {create} from "zustand";
+import UserService from "../service/UserService.js";
 
-const userStore = create((set) => ({
-    user: {},
-
-    isAuth: false,
-
-    setAuth: (bool) =>
-        set(() => ({
-            isAuth: bool
-        })),
-
-    login: async (login, password) => {
+const userStore = create(() => ({
+    addUser: async (user) => {
         try {
-            const response = await AuthService.login(login, password)
-            localStorage.setItem('token', response?.data?.accessToken) // *accessToken* - name of attr access token in bd
-            set({
-                user: response?.data?.user,
-                isAuth: true,
-            })
+            return await UserService.addUser(user).then(resp => resp.user)
         } catch (e) {
             console.log(e.response?.data?.message)
         }
     },
 
-    loginTEST: async (string) => {
+    deleteUser: async (id) => {
         try {
-            const response = await AuthService.loginTEST(string)
-            // localStorage.setItem('token', response?.data?.accessToken) // *accessToken* - name of attr access token in bd
-            // set({
-            //     user: response?.data?.telegrams,
-            //     isAuth: true,
-            // })
+            return await UserService.deleteUser(id).then(resp => resp.user)
         } catch (e) {
             console.log(e.response?.data?.message)
         }
     },
 
-    registration: async (login, password) => {
+    getAllUsers: async () => {
         try {
-            const response = await AuthService.registration(login, password)
-            localStorage.setItem('token', response?.data?.accessToken) // *accessToken* - name of attr access token in bd
-            set({
-                user: response?.data?.user,
-                isAuth: true,
-            })
+            return await UserService.getAllUsers().then(resp => resp.users)
         } catch (e) {
             console.log(e.response?.data?.message)
         }
     },
 
-    logout: async () => {
+    getUser: async (id) => {
         try {
-            const response = await AuthService.logout()
-            localStorage.removeItem('token')
-            set({
-                user: {},
-                isAuth: false,
-            })
+            return await UserService.getUser(id).then(resp => resp.user)
+        } catch (e) {
+            console.log(e.response?.data?.message)
+        }
+    },
+
+    updateUser: async (user) => {
+        try {
+            return await UserService.updateUser(user).then(resp => resp.user)
         } catch (e) {
             console.log(e.response?.data?.message)
         }
     }
-
 }));
 export default userStore;

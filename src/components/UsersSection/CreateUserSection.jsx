@@ -1,7 +1,42 @@
 
 import CreateItemInputField from "./CreateItemInputField.jsx";
+import userStore from "../../store/userStore.js";
+import {useState} from "react";
 
-const CreateUserSection = () => {
+const CreateUserSection = ({handleClose}) => {
+
+    const addUser = userStore(state => state.addUser)
+
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [middleName, setMiddleName] = useState('')
+    const [login, setLogin] = useState('')
+    const [password, setPassword] = useState('')
+    const [phone, setPhone] = useState('')
+    const [postCode, setPostCode] = useState('')
+    const [role, setRole] = useState('sender')
+
+    const handleRadioInputChange = (e) => {
+        setRole(e.target.value)
+    }
+
+    const handleAdd = () => {
+        const user = {
+            first_name: firstName,
+            id: "",
+            last_name: lastName,
+            login,
+            middle_name: middleName,
+            password,
+            phone,
+            post_code: postCode,
+            role
+        }
+        addUser(user).then(() => setWarningMessage(null)).catch(() => setWarningMessage('Warning'))
+    }
+
+    const [warningMessage, setWarningMessage] = useState(null)
+
     return <div className="px-20 py-14">
         <header className="mb-12">
             <h2 className="section-title text-center">
@@ -11,8 +46,10 @@ const CreateUserSection = () => {
 
         <form>
             <ul className="flex flex-wrap justify-evenly gap-4 mb-24 mt-20">
-            <li className="w-[40%]">
+                <li className="w-[40%]">
                     <CreateItemInputField
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
                         name="first_name"
                         inputId="name"
                         inputType="text"
@@ -22,6 +59,8 @@ const CreateUserSection = () => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
                         name="phone"
                         inputId="phoneNumber"
                         inputType="tel"
@@ -30,6 +69,8 @@ const CreateUserSection = () => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
                         name="last_name"
                         inputId="lastName"
                         inputType="text"
@@ -38,6 +79,8 @@ const CreateUserSection = () => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
+                        value={postCode}
+                        onChange={(e) => setPostCode(e.target.value)}
                         name="post_code"
                         inputId="postNumber"
                         inputType="text"
@@ -46,6 +89,8 @@ const CreateUserSection = () => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
+                        value={middleName}
+                        onChange={(e) => setMiddleName(e.target.value)}
                         name="middle_name"
                         inputId="middleName"
                         inputType="text"
@@ -54,6 +99,8 @@ const CreateUserSection = () => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
+                        value={login}
+                        onChange={(e) => setLogin(e.target.value)}
                         name="login"
                         inputId="login"
                         inputType="text"
@@ -66,33 +113,42 @@ const CreateUserSection = () => {
                         <div className="flex gap-3">
                             <input
                                 className="w-6"
-                                type="radio" id="roleChoice1"
+                                type="radio"
+                                checked={role === "admin"}
+                                id="roleChoice1"
                                 name="role"
-                                value="admin"/>
+                                onChange={handleRadioInputChange}
+                                value={"admin"}/>
                             <label className="text-2xl" htmlFor="contactChoice1">Админ</label>
                         </div>
                         <div className="flex gap-3">
                             <input
                                 className="w-6"
                                 type="radio"
+                                checked={role === "sender"}
                                 id="roleChoice2"
                                 name="role"
-                                value="sender"/>
+                                onChange={handleRadioInputChange}
+                                value={"sender"}/>
                             <label className="text-2xl" htmlFor="contactChoice2">Отправитель</label>
                         </div>
                         <div className="flex gap-3">
                             <input
                                 className="w-6"
                                 type="radio"
+                                checked={role === "hydrologist"}
                                 id="roleChoice3"
                                 name="role"
-                                value="hydrologist"/>
+                                onChange={handleRadioInputChange}
+                                value={"hydrologist"}/>
                             <label className="text-2xl" htmlFor="contactChoice3">Гидролог</label>
                         </div>
                     </div>
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         name="password"
                         inputId="password"
                         inputType="password"
@@ -100,12 +156,13 @@ const CreateUserSection = () => {
                         labelFor="password"/>
                 </li>
             </ul>
+            <span className='text-red'>{warningMessage != null ? warningMessage : ''}</span>
         </form>
         <div className="flex justify-center gap-28">
-            <button className="cancel-btn text-2xl">
+            <button onClick={handleClose} className="cancel-btn text-2xl">
                 Отменить
             </button>
-            <button type="submit" className="btn py-5 px-10 text-2xl">
+            <button onClick={handleAdd} type="submit" className="btn py-5 px-10 text-2xl">
                 Подтвердить
             </button>
         </div>

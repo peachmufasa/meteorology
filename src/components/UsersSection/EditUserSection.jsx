@@ -1,8 +1,43 @@
 
 import CreateItemInputField from "./CreateItemInputField.jsx";
+import {useState} from "react";
+import userStore from "../../store/userStore.js";
 
 
-const EditUserSection = ({selectedUser}) => {
+const EditUserSection = ({handleClose, selectedUser}) => {
+
+    const updateUser = userStore(state => state.updateUser)
+
+    const [firstName, setFirstName] = useState(selectedUser.first_name)
+    const [lastName, setLastName] = useState(selectedUser.last_name)
+    const [middleName, setMiddleName] = useState(selectedUser.middle_name)
+    const [login, setLogin] = useState(selectedUser.login)
+    const [password, setPassword] = useState(selectedUser.password)
+    const [phone, setPhone] = useState(selectedUser.phone)
+    const [postCode, setPostCode] = useState(selectedUser.post_code)
+    const [role, setRole] = useState(selectedUser.role)
+
+    const handleRadioInputChange = (e) => {
+        setRole(e.target.value)
+    }
+
+    const handleSave = () => {
+        const user = {
+            first_name: firstName,
+            id: selectedUser.id,
+            last_name: lastName,
+            login,
+            middle_name: middleName,
+            password,
+            phone,
+            post_code: postCode,
+            role
+        }
+        updateUser(user).then(() => setWarningMessage(null)).catch(() => setWarningMessage('Warning'))
+    }
+
+    const [warningMessage, setWarningMessage] = useState(null)
+
     return <div className="px-20 py-14">
         <header className="mb-12">
             <h2 className="section-title text-center">
@@ -14,7 +49,8 @@ const EditUserSection = ({selectedUser}) => {
             <ul className="flex flex-wrap justify-evenly gap-4 mb-24 mt-20">
             <li className="w-[40%]">
                     <CreateItemInputField
-                        value={selectedUser.first_name}
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
                         name="first_name"
                         inputId="name"
                         inputType="text"
@@ -24,7 +60,8 @@ const EditUserSection = ({selectedUser}) => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
-                        value={selectedUser.phone}
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
                         name="phone"
                         inputId="phoneNumber"
                         inputType="tel"
@@ -33,7 +70,8 @@ const EditUserSection = ({selectedUser}) => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
-                        value={selectedUser.last_name}
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
                         name="last_name"
                         inputId="lastName"
                         inputType="text"
@@ -42,7 +80,8 @@ const EditUserSection = ({selectedUser}) => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
-                        value={selectedUser.post_code}
+                        value={postCode}
+                        onChange={(e) => setPostCode(e.target.value)}
                         name="post_code"
                         inputId="postNumber"
                         inputType="text"
@@ -51,7 +90,8 @@ const EditUserSection = ({selectedUser}) => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
-                        value={selectedUser.middle_name}
+                        value={middleName}
+                        onChange={(e) => setMiddleName(e.target.value)}
                         name="middle_name"
                         inputId="middleName"
                         inputType="text"
@@ -60,7 +100,8 @@ const EditUserSection = ({selectedUser}) => {
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
-                        value={selectedUser.login}
+                        value={login}
+                        onChange={(e) => setLogin(e.target.value)}
                         name="login"
                         inputId="login"
                         inputType="text"
@@ -75,37 +116,41 @@ const EditUserSection = ({selectedUser}) => {
                             <input
                                 className="w-6"
                                 type="radio"
-                                checked={selectedUser.role === "role"}
+                                checked={role === "admin"}
                                 id="roleChoice1"
                                 name="role"
-                                value="admin"/>
+                                onChange={handleRadioInputChange}
+                                value={"admin"}/>
                             <label className="text-2xl" htmlFor="contactChoice1">Админ</label>
                         </div>
                         <div className="flex gap-3">
                             <input
                                 className="w-6"
                                 type="radio"
-                                checked={selectedUser.role === "sender"}
+                                checked={role === "sender"}
                                 id="roleChoice2"
                                 name="role"
-                                value="sender"/>
+                                onChange={handleRadioInputChange}
+                                value={"sender"}/>
                             <label className="text-2xl" htmlFor="contactChoice2">Отправитель</label>
                         </div>
                         <div className="flex gap-3">
                             <input
                                 className="w-6"
                                 type="radio"
-                                checked={selectedUser.role === "hydrologist"}
+                                checked={role === "hydrologist"}
                                 id="roleChoice3"
                                 name="role"
-                                value="hydrologist"/>
+                                onChange={handleRadioInputChange}
+                                value={"hydrologist"}/>
                             <label className="text-2xl" htmlFor="contactChoice3">Гидролог</label>
                         </div>
                     </div>
                 </li>
                 <li className="w-[40%]">
                     <CreateItemInputField
-                        value={selectedUser.password}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         name="password"
                         inputId="password"
                         inputType="password"
@@ -113,16 +158,17 @@ const EditUserSection = ({selectedUser}) => {
                         labelFor="password"/>
                 </li>
             </ul>
+            <span className='text-red'>{warningMessage != null ? warningMessage : ''}</span>
         </form>
         <div className="flex justify-center gap-28">
-            <button className="cancel-btn text-2xl">
+            <button onClick={handleClose} className="cancel-btn text-2xl">
                 Отменить
             </button>
-            <button type="submit" className="btn py-5 px-10 text-2xl">
+            <button onClick={handleSave} type="submit" className="btn py-5 px-10 text-2xl">
                 Подтвердить
             </button>
         </div>
-    </div>;
+    </div>
 };
 
 export default EditUserSection;

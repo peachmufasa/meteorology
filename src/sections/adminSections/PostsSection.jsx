@@ -42,9 +42,9 @@ const PostsSection = () => {
 
     useEffect(() => {
         if ((searchValue === debouncedSearchValue) && (searchValue !== '')) {
-            findPosts(debouncedSearchValue).then(resp => setPosts(resp))
+            findPosts(debouncedSearchValue).then(resp => setPosts(resp ?? []))
         } else {
-            getAllPosts().then(resp => setPosts(resp))
+            getAllPosts().then(resp => setPosts(resp ?? []))
         }
     }, [getAllPosts, debouncedSearchValue, findPosts])
 
@@ -76,7 +76,7 @@ const PostsSection = () => {
                     placeholder="Поиск"
                     value={searchValue}
                     onChange={handleSearchValueChange}
-                    className="input-search w-[35%] px-6 py-4 text-2xl"
+                    className="input-search w-full px-6 py-4 my-2 text-2xl"
                 /> : ""}
                 {searchValue === debouncedSearchValue ? <PostsList onSelected={handleSelection} posts={posts}/> :
                     <h1 className="">Загрузка...</h1>}
