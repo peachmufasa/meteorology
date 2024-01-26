@@ -18,7 +18,7 @@ const UsersList = ({onUserEdit}) => {
     const currentUsers = users.slice(indexOfFirstItem, indexOfLastItem);
 
     return <div className="flex flex-col items-center justify-between">
-        <ul className="max-h-[42rem] w-full overflow-y-auto">
+        <ul className="h-[42rem] w-full overflow-y-auto">
                 {currentUsers.map(user => <li key={user.id}><UserItem onEditUser={onUserEdit}  user={user}/></li>)}
         </ul>
         <CustomPagination

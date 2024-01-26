@@ -1,11 +1,8 @@
 import {useState} from "react";
-import SectionTitle from "../../components/ReusableComponents/SectionTitle.jsx";
 import AddButton from "../../components/ReusableComponents/AddButton.jsx";
 import CreateUserSection from "../../components/UsersSection/CreateUserSection.jsx";
-import InputForm from "../../components/ReusableComponents/InputForm.jsx";
 import UsersList from "../../components/UsersSection/UsersList.jsx";
 import EditUserSection from "../../components/UsersSection/EditUserSection.jsx";
-import DropdownMenu from "../../components/ReusableComponents/DropdownMenu.jsx";
 
 
 const UsersSection = () => {
@@ -30,18 +27,14 @@ const UsersSection = () => {
     return (
         <div className="px-20 py-10">
             <header className="flex justify-between items-center mb-6 w-full">
-                <SectionTitle>
+                <h2 className="section-title">
                     Пользователи
-                </SectionTitle>
-                <div className="w-[40%] flex gap-4 items-center">
-                    <InputForm
+                </h2>
+                    <input
                         type="text"
                         placeholder="Поиск"
-                        style="w-[90%] border-2 border-gray bg-transparent"
+                        className="input-search w-[35%] px-6 py-4 text-2xl"
                     />
-                    <DropdownMenu option1={"Все"} option2={"Имя"} option3={"Пост"} option4={"Роль"}
-                    />
-                </div>
                 <AddButton onClick={handleRegisterUser}>
                     Cоздать
                 </AddButton>

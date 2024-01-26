@@ -1,4 +1,4 @@
-import SectionTitle from "../../components/ReusableComponents/SectionTitle.jsx";
+
 import ServiceList from "../../components/ServiceStatusSection/ServiceList.jsx";
 
 
@@ -6,9 +6,9 @@ const ServiceStatusSection = () => {
     return (
         <div className="px-20 py-10">
             <header className="h-[66px] flex items-center mb-6 w-full">
-                <SectionTitle>
+                <h2 className="section-title">
                     Статус сервисов
-                </SectionTitle>
+                </h2>
             </header>
             <ServiceList/>
         </div>

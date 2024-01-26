@@ -1,4 +1,4 @@
-import SectionTitle from "../ReusableComponents/SectionTitle.jsx";
+
 import CreateItemInputField from "../UsersSection/CreateItemInputField.jsx";
 import {useState} from "react";
 import postStore from "../../store/postStore.js";
@@ -32,9 +32,9 @@ const MyComponent = ({ onReturn}) => {
                         <path d="M16 2L3 13L16 24" stroke="white" strokeWidth="3" strokeLinecap="round"/>
                     </svg>
                 </button>
-                <SectionTitle>
+                <h2 className="section-title">
                     Создать пост
-                </SectionTitle>
+                </h2>
             </div>
             <div
                 className="h-[90%] px-4 py-3 rounded-3xl bg-secondary-dark flex flex-col justify-center items-center gap-20">

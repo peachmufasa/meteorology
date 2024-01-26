@@ -1,6 +1,5 @@
 import CustomPagination from "../ReusableComponents/CustomPagination.jsx";
 import {useState} from "react";
-import {postsMockup} from "../../api/postData.jsx";
 import PostItem from "./PostItem.jsx";
 
 const PostsList = ({onSelected, posts}) => {
@@ -16,7 +15,7 @@ const PostsList = ({onSelected, posts}) => {
     const currentPosts = posts.slice(indexOfFirstItem, indexOfLastItem);
     return (
         <div className="flex flex-col items-center justify-between">
-            <ul className="max-h-[42rem] w-full overflow-y-auto">
+            <ul className="h-[42rem] w-full overflow-y-auto">
                 {currentPosts.map(post => <li key={post.id}><PostItem post={post} onSelected={onSelected}/></li>)}
             </ul>
             <CustomPagination

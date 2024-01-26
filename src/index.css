@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    /*Add font-size, paddings, margins, width and height to the component itself*/
+
+    .btn {
+        @apply text-perfect-blue bg-dark-gray/50 rounded-full
+        transition-all ease-in-out hover:bg-dark-gray active:bg-gray/30
+    }
+
+    .cancel-btn {
+        @apply text-red transition-all ease-in-out hover:text-red/50
+    }
+
+    .input-decorated {
+        @apply bg-dark-gray outline-none rounded-full border-2 border-transparent
+        text-white  transition-all ease-in-out
+        hover:border-perfect-blue focus:border-perfect-blue focus:shadow-perfect-blue focus:shadow-[0px_0px_8px_perfect-blue]
+    }
+
+    .input-create-edit-item {
+        @apply bg-dark-gray outline-none rounded-full text-white transition-all ease-in-out hover:bg-gray focus:bg-gray/50
+    }
+
+    .input-search {
+        @apply outline-none border-2 border-gray rounded-full bg-transparent transition-all ease-in-out
+        hover:border-white focus:border-white focus:bg-gray/10
+    }
+
+    .section-title {
+        @apply min-w-[25%] text-4xl font-semibold tracking-widest
+    }
+}

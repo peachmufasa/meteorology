@@ -1,5 +1,4 @@
-import SectionTitle from "../../components/ReusableComponents/SectionTitle.jsx";
-import InputForm from "../../components/ReusableComponents/InputForm.jsx";
+
 import AddButton from "../../components/ReusableComponents/AddButton.jsx";
 import PostsList from "../../components/PostsSection/PostsList.jsx";
 import {useEffect, useState} from "react";
@@ -54,29 +53,33 @@ const PostsSection = () => {
             {selectedPost && <EditPostSection selectedPost={selectedPost} onReturn={setSelectedNull}/>}
             {isCreatePostSectionOn && <AddPostSection onReturn={handleCloseCreatePost} />}
             <div className={selectedPost != null || isCreatePostSectionOn === true  ? "w-1/2 bg-secondary-dark rounded-3xl px-10 py-4" : "px-20 py-10"}>
-                <header className={selectedPost === null || isCreatePostSectionOn === false ? "flex justify-between items-center mb-6 w-full" : "flex justify-between items-center mb-3 w-full"}>
-                    <SectionTitle>
-                        Список постов
-                    </SectionTitle>
-                    {selectedPost === null && isCreatePostSectionOn === false  ? <InputForm
-                        type="text"
-                        placeholder="Поиск"
-                        style="w-[35%] border-2 border-gray bg-transparent"
-                        value={searchValue}
-                        onChange={handleSearchValueChange}
-                    /> : ""}
+                <header
+                    className={selectedPost === null || isCreatePostSectionOn === false ? "flex justify-between items-center mb-6 w-full" : "flex justify-between items-center mb-3 w-full"}>
+                    <h2 className="section-title">
+                        Посты
+                    </h2>
+                    {selectedPost === null && isCreatePostSectionOn === false ?
+                        <input
+                            type="text"
+                            placeholder="Поиск"
+                            value={searchValue}
+                            onChange={handleSearchValueChange}
+                            className="input-search w-[35%] px-6 py-4 text-2xl"
+                        />
+                        : ""}
                     <AddButton disabled={isCreatePostSectionOn && true} onClick={handleCreatePost}>
                         Cоздать
                     </AddButton>
                 </header>
-                {selectedPost != null || isCreatePostSectionOn === true ? <InputForm
+                {selectedPost != null || isCreatePostSectionOn === true ? <input
                     type="text"
                     placeholder="Поиск"
-                    style="w-[100%] mb-5 border-2 border-gray bg-transparent"
                     value={searchValue}
                     onChange={handleSearchValueChange}
+                    className="input-search w-[35%] px-6 py-4 text-2xl"
                 /> : ""}
-                {searchValue === debouncedSearchValue ? <PostsList onSelected={handleSelection} posts={posts}/> : <h1>Loading...</h1> }
+                {searchValue === debouncedSearchValue ? <PostsList onSelected={handleSelection} posts={posts}/> :
+                    <h1 className="">Загрузка...</h1>}
             </div>
         </div>)
 

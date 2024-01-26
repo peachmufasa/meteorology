@@ -1,18 +1,18 @@
-import SectionTitle from "../ReusableComponents/SectionTitle.jsx";
+
 import CreateItemInputField from "./CreateItemInputField.jsx";
 
 
 const EditUserSection = ({selectedUser}) => {
     return <div className="px-20 py-14">
         <header className="mb-12">
-            <SectionTitle style="text-center">
+            <h2 className="section-title text-center">
                 Редактировать пользователя
-            </ SectionTitle>
+            </h2>
         </header>
 
         <form>
             <ul className="flex flex-wrap justify-evenly gap-4 mb-24 mt-20">
-                <li className="w-[40%]">
+            <li className="w-[40%]">
                     <CreateItemInputField
                         value={selectedUser.first_name}
                         name="first_name"
@@ -114,10 +114,10 @@ const EditUserSection = ({selectedUser}) => {
                 </li>
             </ul>
             <div className="flex justify-center gap-28">
-                <button className="text-2xl text-red transition-all ease-in-out hover:text-red/50">
+                <button className="cancel-btn text-2xl">
                     Отменить
                 </button>
-                <button type="submit" className="py-5 px-10 text-2xl text-perfect-blue bg-dark-gray/50 rounded-full transition-all ease-in-out hover:bg-dark-gray active:bg-gray/30">
+                <button type="submit" className="btn py-5 px-10 text-2xl">
                     Подтвердить
                 </button>
             </div>
