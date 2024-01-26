@@ -15,8 +15,8 @@ const PostsList = ({onSelected, posts}) => {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentPosts = posts.slice(indexOfFirstItem, indexOfLastItem);
     return (
-        <div className="flex flex-col items-center">
-            <ul className="max-h-[42rem] w-full overflow-y-auto mb-4">
+        <div className="flex flex-col items-center justify-between">
+            <ul className="max-h-[42rem] w-full overflow-y-auto">
                 {currentPosts.map(post => <li key={post.id}><PostItem post={post} onSelected={onSelected}/></li>)}
             </ul>
             <CustomPagination
