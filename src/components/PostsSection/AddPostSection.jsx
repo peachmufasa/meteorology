@@ -37,7 +37,7 @@ const MyComponent = ({ onReturn}) => {
                 </h2>
             </div>
             <div
-                className="h-[90%] px-4 py-3 rounded-3xl bg-secondary-dark flex flex-col justify-center items-center gap-20">
+                className="h-[90%] px-4 py-3 rounded-3xl bg-secondary-dark flex flex-col justify-evenly items-center">
                 <form className="w-2/3 flex flex-col gap-6">
                     <CreateItemInputField
                         name="code"

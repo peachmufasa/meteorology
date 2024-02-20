@@ -64,7 +64,7 @@ const PostsSection = () => {
                             placeholder="Поиск"
                             value={searchValue}
                             onChange={handleSearchValueChange}
-                            className="input-search w-[35%] px-6 py-4 text-2xl"
+                            className="input-search w-[35%] px-6 py-3 text-2xl"
                         />
                         : ""}
                     <AddButton disabled={isCreatePostSectionOn && true} onClick={handleCreatePost}>
@@ -76,7 +76,7 @@ const PostsSection = () => {
                     placeholder="Поиск"
                     value={searchValue}
                     onChange={handleSearchValueChange}
-                    className="input-search w-full px-6 py-4 my-2 text-2xl"
+                    className="input-search w-full px-6 py-3 my-2 text-2xl"
                 /> : ""}
                 {searchValue === debouncedSearchValue ? <PostsList onSelected={handleSelection} posts={posts}/> :
                     <h1 className="">Загрузка...</h1>}

@@ -17,13 +17,15 @@ const UsersList = ({onUserEdit, users}) => {
     const currentUsers = users.slice(indexOfFirstItem, indexOfLastItem);
 
     return <div className="flex flex-col items-center justify-between">
-        <ul className="h-[42rem] w-full overflow-y-auto">
-                {currentUsers.map(user => <li key={user.id}><UserItem onEditUser={onUserEdit} user={user}/></li>)}
+        <ul className="w-[100%] overflow-y-auto">
+            {currentUsers.map(user => <li key={user.id}><UserItem onEditUser={onUserEdit} user={user}/></li>)}
         </ul>
-        <CustomPagination
-            pageCount={Math.ceil(users.length / itemsPerPage)}
-            onPageChange={handlePaginationChange}
-        />
+        <div className="absolute bottom-10">
+            <CustomPagination
+                pageCount={Math.ceil(users.length / itemsPerPage)}
+                onPageChange={handlePaginationChange}
+            />
+        </div>
     </div>
 }
 

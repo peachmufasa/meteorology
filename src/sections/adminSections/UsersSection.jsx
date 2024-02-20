@@ -66,7 +66,7 @@ const UsersSection = () => {
                         placeholder="Поиск"
                          value={searchValue}
                         onChange={handleSearchValueChange}
-                        className="input-search w-[35%] px-6 py-4 text-2xl"
+                        className="input-search w-[35%] px-6 py-3 text-2xl"
                     />
                 <AddButton onClick={handleRegisterUser}>
                     Cоздать

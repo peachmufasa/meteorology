@@ -15,13 +15,16 @@ const PostsList = ({onSelected, posts}) => {
     const currentPosts = posts.slice(indexOfFirstItem, indexOfLastItem);
     return (
         <div className="flex flex-col items-center justify-between">
-            <ul className="h-[42rem] w-full overflow-y-auto">
+            <ul className="w-full overflow-y-auto">
                 {currentPosts.map(post => <li key={post.id}><PostItem post={post} onSelected={onSelected}/></li>)}
             </ul>
-            <CustomPagination
-                pageCount={Math.ceil(posts.length / itemsPerPage)}
-                onPageChange={handlePaginationChange}
-            />
+            <div className="absolute bottom-10">
+                <CustomPagination
+                    pageCount={Math.ceil(posts.length / itemsPerPage)}
+                    onPageChange={handlePaginationChange}
+                />
+            </div>
+
         </div>
     );
 };

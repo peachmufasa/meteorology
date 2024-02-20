@@ -37,15 +37,15 @@ const CreateUserSection = ({handleClose}) => {
 
     const [warningMessage, setWarningMessage] = useState(null)
 
-    return <div className="px-20 py-14">
-        <header className="mb-12">
+    return <div className="px-20 py-14 flex flex-col justify-between h-full">
+        <header>
             <h2 className="section-title text-center">
                 Создать пользователя
             </h2>
         </header>
 
         <form>
-            <ul className="flex flex-wrap justify-evenly gap-4 mb-24 mt-20">
+            <ul className="flex flex-wrap justify-evenly gap-4">
                 <li className="w-[40%]">
                     <CreateItemInputField
                         value={firstName}

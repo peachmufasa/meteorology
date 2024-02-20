@@ -18,18 +18,18 @@ export const LayoutMenu = () => {
   const adminRole = true; //placeholder
 
   return (
-    <div className={"flex flex-row bg-main-dark text-white h-full"}>
-      <div className={"min-w-[18.75%] bg-secondary-dark"}>
+    <div className={"flex flex-row justify-between bg-main-dark text-white h-full"}>
+      <div className={"basis-1/5 shrink-0 min-w-[350px] bg-secondary-dark"}>
         <div
           className={
-            "flex flex-col justify-between h-full gap-[4.375rem] p-[3rem]"
+            "flex flex-col justify-between h-full px-[2rem] py-[3rem]"
           }
         >
-          <div className={"flex flex-row"}>
+          <div className={"flex flex-row mb-[4.375rem]"}>
             <img
               alt={"ProfileSymbol"}
               src={ProfileSymbol}
-              className="w-[7rem] h-[6rem] mix-blend-lighten rounded-full"
+              className="w-[5rem] h-[4rem] mix-blend-lighten rounded-full"
             />
             <div className={"flex flex-col justify-center gap-[0.875rem]"}>
               <span
@@ -72,7 +72,7 @@ export const LayoutMenu = () => {
       </div>
       <div
         className={
-          "w-[81.25%] bg-secondary-dark m-[5rem] rounded-[32px]"
+          "basis-4/5 min-w-[1050px] bg-secondary-dark m-[60px] rounded-[32px] relative"
         }
       >
         <Outlet />

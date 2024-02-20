@@ -30,6 +30,6 @@
     }
 
     .section-title {
-        @apply min-w-[25%] text-4xl font-semibold tracking-widest
+        @apply min-w-[25%] text-[2rem] font-semibold tracking-widest
     }
 }
