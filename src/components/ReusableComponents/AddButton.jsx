@@ -3,7 +3,7 @@ const AddButton = ({children, onClick, disabled}) => {
         <button
             className="group flex gap-2 items-center rounded-full py-3 px-5 transition-all ease-in-out"
             onClick={onClick} disabled={disabled && true}>
-            <svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
                 <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/>
                 <g id="SVGRepo_iconCarrier">
@@ -11,7 +11,7 @@ const AddButton = ({children, onClick, disabled}) => {
                           strokeLinejoin="round"/>
                 </g>
             </svg>
-            <span className="w-fit text-3xl tracking-wide text-perfect-blue group-hover:text-perfect-blue-hover group-active:text-perfect-blue-active group-disabled:text-gray">{children}</span>
+            <span className="w-fit text-[1.5rem] tracking-wide text-perfect-blue group-hover:text-perfect-blue-hover group-active:text-perfect-blue-active group-disabled:text-gray">{children}</span>
         </button>
     </div>
 }
